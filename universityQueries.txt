@@ -1,0 +1,21 @@
+--Find all rooms that can seat at least 100 people
+select name from rooms where capacity > 100;
+
+--Find the course or courses with the earliest start time
+select name from courses where start_time = min(start_time);
+
+--Find all courses taken by BIF majors
+select courses.name from courses, departments where department.name = 'BIF';
+
+--Create a list of all students who are not enrolled in a course
+select student.name form students, enrolled where student.id != enrolled.student_id;
+
+--Find the number of CS majors enrolled in CSC275
+select count(student_id) from enrolled, majorsIn where majorsIn.dept_name = 'CS' and enrolled.course_name = 'CSC275';
+
+--Find the number of CS majors enrolled in any course
+select count(enrolled.student_id) from enrolled, majorsIn where majorsIn.student_id=enrolled.studen_id and majorsIn.dept_name = 'CS';
+
+
+
+ 
